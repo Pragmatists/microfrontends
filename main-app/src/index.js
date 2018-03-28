@@ -31,6 +31,6 @@ let loadAngularApp = async () => {
     await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/main.bundle.js');
     return window.angularApp;
 };
-singleSpa.registerApplication('angular-app', loadAngularApp, () => location.pathname === "/angular");
+singleSpa.registerApplication('angular-app', loadAngularApp, () => location.pathname === "/angular" || location.pathname === "/");
 
 singleSpa.start();
