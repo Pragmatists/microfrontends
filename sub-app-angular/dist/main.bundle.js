@@ -122,12 +122,18 @@ var AppModule = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bootstrap", function() { return bootstrap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mount", function() { return mount; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unmount", function() { return unmount; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__("./node_modules/@angular/platform-browser-dynamic/esm5/platform-browser-dynamic.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_app_module__ = __webpack_require__("./src/app/app.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_zone_js__ = __webpack_require__("./node_modules/zone.js/dist/zone.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_zone_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_zone_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reflect_metadata__ = __webpack_require__("./node_modules/reflect-metadata/Reflect.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reflect_metadata___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_reflect_metadata__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_single_spa_angular2__ = __webpack_require__("./node_modules/single-spa-angular2/lib/single-spa-angular2.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_single_spa_angular2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_single_spa_angular2__);
+
 
 
 
@@ -135,30 +141,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // if (environment.production) {
 //   enableProdMode();
 // }
-Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_app_module__["a" /* AppModule */])
-    .catch(function (err) { return console.log(err); });
-// const ng2Lifecycles = singleSpaAngular2({
-//   domElementGetter,
-//   mainModule: AppModule,
-//   angularPlatform: platformBrowserDynamic(),
-//   template: `<app-root />`,
-// });
-//
-// export const bootstrap = [
-//   ng2Lifecycles.bootstrap,
-// ];
-//
-// export const mount = [
-//   ng2Lifecycles.mount,
-// ];
-//
-// export const unmount = [
-//   ng2Lifecycles.unmount,
-// ];
-//
-// function domElementGetter() {
-//   return document.getElementById('sub-app-angular');
-// }
+// platformBrowserDynamic().bootstrapModule(AppModule)
+//   .catch(err => console.log(err));
+var ng2Lifecycles = __WEBPACK_IMPORTED_MODULE_4_single_spa_angular2___default()({
+    domElementGetter: domElementGetter,
+    mainModule: __WEBPACK_IMPORTED_MODULE_1__app_app_module__["a" /* AppModule */],
+    angularPlatform: Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])(),
+    template: "<app-root />",
+});
+var bootstrap = [
+    ng2Lifecycles.bootstrap,
+];
+var mount = [
+    ng2Lifecycles.mount,
+];
+var unmount = [
+    ng2Lifecycles.unmount,
+];
+function domElementGetter() {
+    return document.getElementById('sub-app-angular');
+}
 
 
 /***/ }),

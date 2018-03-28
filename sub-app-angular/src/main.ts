@@ -12,28 +12,28 @@ import singleSpaAngular2 from 'single-spa-angular2';
 //   enableProdMode();
 // }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+// platformBrowserDynamic().bootstrapModule(AppModule)
+//   .catch(err => console.log(err));
 
-// const ng2Lifecycles = singleSpaAngular2({
-//   domElementGetter,
-//   mainModule: AppModule,
-//   angularPlatform: platformBrowserDynamic(),
-//   template: `<app-root />`,
-// });
-//
-// export const bootstrap = [
-//   ng2Lifecycles.bootstrap,
-// ];
-//
-// export const mount = [
-//   ng2Lifecycles.mount,
-// ];
-//
-// export const unmount = [
-//   ng2Lifecycles.unmount,
-// ];
-//
-// function domElementGetter() {
-//   return document.getElementById('sub-app-angular');
-// }
+const ng2Lifecycles = singleSpaAngular2({
+  domElementGetter,
+  mainModule: AppModule,
+  angularPlatform: platformBrowserDynamic(),
+  template: `<app-root />`,
+});
+
+export const bootstrap = [
+  ng2Lifecycles.bootstrap,
+];
+
+export const mount = [
+  ng2Lifecycles.mount,
+];
+
+export const unmount = [
+  ng2Lifecycles.unmount,
+];
+
+function domElementGetter() {
+  return document.getElementById('sub-app-angular');
+}
