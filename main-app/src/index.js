@@ -1,5 +1,4 @@
 import * as singleSpa from 'single-spa';
-import $script from 'scriptjs'
 
 /* The loading function is a function that returns a promise that resolves with the javascript application module.
  * The purpose of it is to facilitate lazy loading -- single-spa will not download the code for a application until it needs to.
@@ -11,22 +10,25 @@ const loadingFunction = () => import('./main-index');
  * One useful convention might be to prefix the url with the name of the app that is active, to keep your top-level routing simple.
  */
 
-singleSpa.registerApplication('main-app', loadingFunction, () => true);
-// singleSpa.registerApplication('sub-app-angular', () => import('./sub-app-angular/src/app/sub-app-angular.app'), () => location.pathname === "/angular");
-let loadReactApp = async () => {
-    const response = await fetch('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/react-16-main.js')
+const loadApp = async (bundleAddress) => {
+    const response = await fetch(bundleAddress)
     let text = await response.text();
     await eval(text);
+};
+
+singleSpa.registerApplication('main-app', loadingFunction, () => true);
+let loadReactApp = async () => {
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/react-16-main.js');
     return window.reactApp;
 };
 singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react" || location.pathname === "/");
 
 let loadAngularApp = async () => {
-    await import('./bundles/dist/inline.bundle');
-    await import('./bundles/dist/polyfills.bundle');
-    await import('./bundles/dist/styles.bundle');
-    await import('./bundles/dist/vendor.bundle');
-    await import('./bundles/dist/main.bundle');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/inline.bundle.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/polyfills.bundle.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/styles.bundle.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/vendor.bundle.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/main.bundle.js');
     return window.angularApp;
 };
 singleSpa.registerApplication('angular-app', loadAngularApp, () => location.pathname === "/angular");
