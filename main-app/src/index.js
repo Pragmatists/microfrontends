@@ -16,5 +16,5 @@ let loadReactApp = async () => {
     const script = await import('./bundles/react-16-main');//TODO we should not know what to import
     return window.reactApp;
 };
-singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react");
+singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react" || location.pathname === "/");
 singleSpa.start();
