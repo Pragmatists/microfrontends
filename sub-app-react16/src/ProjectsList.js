@@ -20,16 +20,33 @@ export class ProjectsList extends Component {
         );
     }
 
+    onEvent = () => {
+        console.log('got event');
+        if (this.timerID) {
+            console.log('stopping clock');
+            clearInterval(this.timerID);
+        } else {
+            console.log('starting clock');
+            this.timerID = setInterval(
+                () => this.tick(),
+                1000
+            );
+        }
+    };
+
 
     componentDidMount() {
         this.timerID = setInterval(
             () => this.tick(),
             1000
         );
+
+        window.addEventListener("toggleClock", this.onEvent);
     }
 
     componentWillUnmount() {
         clearInterval(this.timerID);
+        window.removeEventListener("toggleClock", this.onEvent);
     }
 
     tick() {
