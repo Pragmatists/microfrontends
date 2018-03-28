@@ -22,7 +22,11 @@ let loadReactApp = async () => {
 singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react" || location.pathname === "/");
 
 let loadAngularApp = async () => {
-    const script = await import('./sub-app-angular/dist/main.bundle');
+    await import('./bundles/dist/inline.bundle');
+    await import('./bundles/dist/polyfills.bundle');
+    await import('./bundles/dist/styles.bundle');
+    await import('./bundles/dist/vendor.bundle');
+    await import('./bundles/dist/main.bundle');
     return window.angularApp;
 };
 singleSpa.registerApplication('angular-app', loadAngularApp, () => location.pathname === "/angular");

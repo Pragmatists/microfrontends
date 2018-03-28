@@ -144,14 +144,14 @@ module.exports = {
     "alias": rxPaths()
   },
   "entry": {
-    "main": [
-      "./src/main.ts"
-    ],
     "polyfills": [
       "./src/polyfills.ts"
     ],
     "styles": [
       "./src/styles.css"
+    ],
+    "main": [
+      "./src/main.ts"
     ]
   },
   "output": {
