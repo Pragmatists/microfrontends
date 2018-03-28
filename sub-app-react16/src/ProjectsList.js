@@ -21,7 +21,7 @@ export class ProjectsList extends Component {
     }
 
     onEvent = () => {
-        console.log('got event');
+        console.log('got event, this.timerID=',this.timerID);
         if (this.timerID) {
             console.log('stopping clock');
             clearInterval(this.timerID);
@@ -37,6 +37,7 @@ export class ProjectsList extends Component {
 
 
     componentDidMount() {
+        console.log('componentDidMount');
         this.timerID = setInterval(
             () => this.tick(),
             1000
