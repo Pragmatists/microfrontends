@@ -13,7 +13,7 @@ const loadingFunction = () => import('./main-index');
 singleSpa.registerApplication('main-app', loadingFunction, () => true);
 // singleSpa.registerApplication('sub-app-angular', () => import('./sub-app-angular/src/app/sub-app-angular.app'), () => location.pathname === "/angular");
 let loadReactApp = async () => {
-    const script = await import('./sub-app-react16/build/static/js/main');
+    const script = await import('./react-16-main');
     return window.reactApp;
 };
 singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react");
