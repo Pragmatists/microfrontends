@@ -1523,7 +1523,7 @@ colormin@^1.0.5:
     css-color-names "0.0.4"
     has "^1.0.1"
 
-colors@~1.1.2:
+colors@^1.1.2, colors@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
 
@@ -5275,6 +5275,13 @@ postcss-unique-selectors@^2.0.2:
 postcss-value-parser@^3.0.1, postcss-value-parser@^3.0.2, postcss-value-parser@^3.1.1, postcss-value-parser@^3.1.2, postcss-value-parser@^3.2.3, postcss-value-parser@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-3.3.0.tgz#87f38f9f18f774a4ab4c8a232f5c5ce8872a9d15"
+
+postcss-wrap@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/postcss-wrap/-/postcss-wrap-0.0.4.tgz#1327bd71aaa48be99da15ac6e41b355f798989ee"
+  dependencies:
+    colors "^1.1.2"
+    postcss "^5.0.13"
 
 postcss-zindex@^2.0.1:
   version "2.2.0"
