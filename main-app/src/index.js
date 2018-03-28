@@ -24,11 +24,11 @@ let loadReactApp = async () => {
 singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react" || location.pathname === "/");
 
 let loadAngularApp = async () => {
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/inline.bundle.js');
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/polyfills.bundle.js');
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/styles.bundle.js');
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/vendor.bundle.js');
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/main.bundle.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/inline.bundle.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/polyfills.bundle.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/styles.bundle.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/vendor.bundle.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/main.bundle.js');
     return window.angularApp;
 };
 singleSpa.registerApplication('angular-app', loadAngularApp, () => location.pathname === "/angular" || location.pathname === "/");
