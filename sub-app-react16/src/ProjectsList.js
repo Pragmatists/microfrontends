@@ -25,6 +25,7 @@ export class ProjectsList extends Component {
         if (this.timerID) {
             console.log('stopping clock');
             clearInterval(this.timerID);
+            this.timerID = undefined;
         } else {
             console.log('starting clock');
             this.timerID = setInterval(
