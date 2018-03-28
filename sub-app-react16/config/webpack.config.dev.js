@@ -66,6 +66,9 @@ module.exports = {
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
+      library: "reactApp",
+      libraryTarget: "window",
+      // libraryExport: ["mount", "unmount", "bootstrap"]
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
