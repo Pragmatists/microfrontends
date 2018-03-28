@@ -1,4 +1,5 @@
 import * as singleSpa from 'single-spa';
+import $script from 'scriptjs'
 
 /* The loading function is a function that returns a promise that resolves with the javascript application module.
  * The purpose of it is to facilitate lazy loading -- single-spa will not download the code for a application until it needs to.
@@ -13,7 +14,9 @@ const loadingFunction = () => import('./main-index');
 singleSpa.registerApplication('main-app', loadingFunction, () => true);
 // singleSpa.registerApplication('sub-app-angular', () => import('./sub-app-angular/src/app/sub-app-angular.app'), () => location.pathname === "/angular");
 let loadReactApp = async () => {
-    const script = await import('./bundles/react-16-main');//TODO we should not know what to import
+    const response = await fetch('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/react-16-main.js')
+    let text = await response.text();
+    await eval(text);
     return window.reactApp;
 };
 singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react" || location.pathname === "/");
