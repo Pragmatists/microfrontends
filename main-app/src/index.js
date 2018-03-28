@@ -20,4 +20,11 @@ let loadReactApp = async () => {
     return window.reactApp;
 };
 singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react" || location.pathname === "/");
+
+let loadAngularApp = async () => {
+    const script = await import('./sub-app-angular/dist/main.bundle');
+    return window.angularApp;
+};
+singleSpa.registerApplication('angular-app', loadAngularApp, () => location.pathname === "/angular");
+
 singleSpa.start();
