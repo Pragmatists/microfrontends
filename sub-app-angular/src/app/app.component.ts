@@ -21,4 +21,9 @@ export class AppComponent implements OnInit {
     this.user = JSON.parse(sessionStorage.getItem('USER') || JSON.stringify(this.fakeUser));
   }
 
+  toggleClock () {
+    const event = new Event('toggleClock');
+    window.dispatchEvent(event);
+  }
+
 }
