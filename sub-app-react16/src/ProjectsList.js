@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
+import Button from "./Button";
 
 export class ProjectsList extends Component {
     constructor(props) {
         super(props);
         this.state = {
             date: new Date(),
-            projects: []
         };
     }
 
@@ -14,24 +14,27 @@ export class ProjectsList extends Component {
             <div>
                 <h1>Hello, from react 16!</h1>
                 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                <Button text="bootstrap 4 button"/>
             </div>
         );
     }
 
+
     componentDidMount() {
-        fetch('http://192.168.208.155:8080/endpoint/v1/projects', {
-            method: 'GET',
-            credentials: 'same-origin'
-        })
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                console.log(data);
-                this.setState({
-                    projects: data.projects
-                });
-            });
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    tick() {
+        this.setState({
+            date: new Date()
+        });
     }
 }
 

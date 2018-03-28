@@ -66,8 +66,8 @@ module.exports = {
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
-      library: "reactApp",
-      libraryTarget: "window",
+      // library: "reactApp",
+      // libraryTarget: "window",
       // libraryExport: ["mount", "unmount", "bootstrap"]
   },
   resolve: {
@@ -110,7 +110,7 @@ module.exports = {
 
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
-      {
+        {
         test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
         use: [
