@@ -18,7 +18,7 @@ const loadApp = async (bundleAddress) => {
 
 singleSpa.registerApplication('main-app', loadingFunction, () => true);
 let loadReactApp = async () => {
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/main-app/src/bundles/react-16-main.js');
+    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-react16/build/static/js/main.js');
     return window.reactApp;
 };
 singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react" || location.pathname === "/");
