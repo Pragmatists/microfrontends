@@ -1,0 +1,11 @@
+.clock {
+  text-align: center;
+  background-color: #3e3e3e;
+  color: #c5c5c5;
+  padding: 20px;
+}
+
+.clock--paused .clock__time {
+  color: #676767;
+}
+

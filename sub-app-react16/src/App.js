@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import {ProjectsList} from "./ProjectsList";
+import {Clock} from "./Clock";
 import './styles/bootstrap/bootstrap.min.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <ProjectsList/>
+        <Clock/>
       </div>
     );
   }

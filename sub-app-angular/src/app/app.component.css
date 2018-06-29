@@ -1,0 +1,11 @@
+.app-component {
+  padding: 20px;
+  color: yellow;
+  background-color: #468686;
+}
+
+.start-stop-button {
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+}
