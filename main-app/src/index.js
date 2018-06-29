@@ -18,19 +18,19 @@ const loadApp = async (bundleAddress) => {
 
 singleSpa.registerApplication('main-app', loadingFunction, () => true);
 let loadReactApp = async () => {
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-react16/build/static/js/main.js');
+    await loadApp('http://localhost:3002/static/js/main.js');
     return window.reactApp;
 };
-singleSpa.registerApplication('react-app', loadReactApp, () => location.pathname === "/react" || location.pathname === "/");
+singleSpa.registerApplication('react-app', loadReactApp, () => global.location.pathname === "/react" || global.location.pathname === "/");
 
 let loadAngularApp = async () => {
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/inline.bundle.js');
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/polyfills.bundle.js');
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/styles.bundle.js');
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/vendor.bundle.js');
-    await loadApp('https://raw.githubusercontent.com/Pragmatists/microfrontends/master/sub-app-angular/dist/main.bundle.js');
+    await loadApp('http://localhost:3001/inline.bundle.js');
+    await loadApp('http://localhost:3001/polyfills.bundle.js');
+    await loadApp('http://localhost:3001/styles.bundle.js');
+    await loadApp('http://localhost:3001/vendor.bundle.js');
+    await loadApp('http://localhost:3001/main.bundle.js');
     return window.angularApp;
 };
-singleSpa.registerApplication('angular-app', loadAngularApp, () => location.pathname === "/angular" || location.pathname === "/");
+singleSpa.registerApplication('angular-app', loadAngularApp, () => global.location.pathname === "/angular" || global.location.pathname === "/");
 
 singleSpa.start();
