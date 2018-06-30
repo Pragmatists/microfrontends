@@ -57,7 +57,7 @@ class App extends Component {
                     </Menu>
                     <div className="App-container">
                         <div id="react-app"/>
-                        <div id="sub-app-angular"/>
+                        <div id="angular-app"/>
                     </div>
                 </div>
             </div>

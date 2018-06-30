@@ -15,7 +15,7 @@ export class Clock extends Component {
         const clockStateClass = this.state.running ? 'clock--running' : 'clock--paused';
         return (
             <div className={`clock ${clockStateClass}`}>
-                <h1>Hello to React 16 application!</h1>
+                <h1>Welcome to React 16 application!</h1>
                 <h2 className='clock__time'>It is {this.state.date.toLocaleTimeString()}</h2>
                 <Button text="Bootstrap 4 Button"/>
             </div>
