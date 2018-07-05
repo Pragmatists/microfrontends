@@ -4,7 +4,9 @@ export const runScript = async (url) => {
         script.src = url;
         script.onload = resolve;
         script.onerror = reject;
-        document.head.appendChild(script);
+
+        const firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
     });
 };
 
