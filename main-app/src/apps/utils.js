@@ -8,4 +8,6 @@ export const runScript = async (url) => {
     });
 };
 
-export const matchingPathname = (pathnames) => (location) => pathnames.some(pathname => location.pathname === pathname);
+export const matchingPathname = (pathnames) =>
+    (location) =>
+        pathnames.some(pathname => location.pathname === pathname);
